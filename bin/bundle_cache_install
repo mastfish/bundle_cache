@@ -4,5 +4,5 @@ architecture = `uname -m`.strip
 file_name = "#{ENV['BUNDLE_ARCHIVE']}-#{architecture}.tgz"
 
 Dir.chdir(ENV['HOME'])
-`wget -O "remote_#{file_name}" "https://s3.amazonaws.com/#{ENV['AWS_S3_BUCKET']}/#{file_name}" && tar -xf "remote_#{file_name}"`
-`wget -O "remote_#{file_name}.sha2" "https://s3.amazonaws.com/#{ENV['AWS_S3_BUCKET']}/#{file_name}.sha2"`
+`wget -O "remote_#{file_name}" "https://#{ENV['AWS_S3_BUCKET']}.s3.amazonaws.com/#{file_name}" && tar -xf "remote_#{file_name}"`
+`wget -O "remote_#{file_name}.sha2" "https://#{ENV['AWS_S3_BUCKET']}.s3.amazonaws.com/#{file_name}.sha2"`
